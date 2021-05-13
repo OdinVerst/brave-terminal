@@ -54,11 +54,11 @@ const Payment:FC<IPayment> = ({selectOperator}) => {
                 </div>
                 <h2>Телефон</h2>
                 <InputMask mask="+7 (999) 999 99 99" onChange={phoneHandler}>
-                    {() => <CustomInput/>}
+                    {() => <CustomInput type="tel" />}
                 </InputMask>
 
                 <h2>Сумма</h2>
-
+                <CustomInput inputMode="decimal"  />
                 <Button text={'Оплатить'} isActive={isActive}/>
             </MainContainer>
             <Footer/>
