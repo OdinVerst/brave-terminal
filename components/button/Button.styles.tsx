@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
-export const ButtonStyle = styled.button`
-  font-family: Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+type ButtonStyleProps = {
+    isActive?: boolean
+}
+
+export const ButtonStyle = styled.button<ButtonStyleProps>`
+  font-family: 'Open Sans', Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   text-transform: uppercase;
   font-size: 18px;
   line-height: 1;

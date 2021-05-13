@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: -webkit-fill-available;
+  min-height: 100vh;
 `;
 
 export const MainContainer = styled.main`
@@ -22,7 +23,7 @@ export const FooterContainer = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   a {
     display: flex;
     justify-content: center;

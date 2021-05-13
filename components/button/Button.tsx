@@ -3,11 +3,12 @@ import {ButtonStyle} from "./Button.styles";
 
 interface Button {
     text: string,
-    isActive: boolean
+    isActive: boolean,
+    onClick: () => void
 }
 
-export const Button:FC<Button> = ({ text, isActive }) => {
+export const Button:FC<Button> = ({ text, isActive, onClick}) => {
     return (
-        <ButtonStyle isActive={isActive}>{text}</ButtonStyle>
+        <ButtonStyle isActive={isActive} onClick={onClick}>{text}</ButtonStyle>
     )
 }

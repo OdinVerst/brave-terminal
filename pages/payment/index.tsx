@@ -37,8 +37,18 @@ const Payment:FC<IPayment> = ({selectOperator}) => {
         setIsActive(!!userValues.count && !!userValues.count)
     }, [userValues]);
 
-    const phoneHandler = (evt: ChangeEvent<HTMLInputElement>) => {
-        serUserValues((prev) => ({...prev, phone: evt.target.value}))
+    const changeHandler = (evt: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = evt.target;
+        console.log(name)
+        if (name && name === 'phone' || name === 'count') {
+            serUserValues((prev) => ({...prev, [name]: value}))
+        }
+    }
+
+    const sendHandler = () => {
+        fetch('api/hello').then(res => {
+            console.log(res)
+        })
     }
 
 
@@ -53,13 +63,13 @@ const Payment:FC<IPayment> = ({selectOperator}) => {
                     {currentOperator ? <Image src={currentOperator.logo} layout={"fill"}/> : null}
                 </div>
                 <h2>Телефон</h2>
-                <InputMask mask="+7 (999) 999 99 99" onChange={phoneHandler}>
-                    {() => <CustomInput type="tel" />}
+                <InputMask mask="+7 (999) 999 99 99" onChange={changeHandler}>
+                    {() => <CustomInput name='phone' type="tel" />}
                 </InputMask>
 
                 <h2>Сумма</h2>
-                <CustomInput inputMode="decimal"  />
-                <Button text={'Оплатить'} isActive={isActive}/>
+                <CustomInput onChange={changeHandler} name='count' inputMode="decimal"  />
+                <Button text={'Оплатить'} isActive={isActive} onClick={sendHandler} />
             </MainContainer>
             <Footer/>
         </Wrapper>
