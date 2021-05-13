@@ -1,6 +1,6 @@
 import {FC} from "react";
 import {Operator} from "../index";
-import {OperatorCard} from "../OperatorCard/OperatorCard";
+import OperatorCard from "../OperatorCard/OperatorCard";
 import {OperatorListWrapper} from "./OperatorList.styles";
 
 type OperatorListProps = {
